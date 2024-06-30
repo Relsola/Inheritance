@@ -14,6 +14,8 @@ interface LinkTagProps {
   content: LinkCardProps[];
 }
 
+const base = import.meta.env.VITE_BASE_URL;
+
 function Tag({ type, title, content }: LinkTagProps) {
   return (
     <div>
@@ -32,7 +34,7 @@ function Card({ title, desc, link, src }: LinkCardProps) {
   return (
     <a className="link-card" href={link} target="_blank">
       <section>
-        <img src={src} />
+        <img src={base + src} />
         <div>
           <span>{title}</span>
           <span>{desc}</span>
