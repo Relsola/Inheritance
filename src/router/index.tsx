@@ -12,7 +12,7 @@ import Error from '@/pages/error';
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />} errorElement={<Error />}>
+    <Route path="/Inheritance" element={<Layout />} errorElement={<Error />}>
       <Route path="" element={<Link />} />
       <Route path="games" element={<Games />} />
       <Route path="wonder" element={<Wonder />} />
