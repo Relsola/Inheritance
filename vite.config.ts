@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/inheritance/',
+
   plugins: [react()],
 
   css: {
