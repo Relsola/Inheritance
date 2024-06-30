@@ -1,0 +1,200 @@
+[
+  {
+    "type": "docs",
+    "title": "学习文档",
+    "content": [
+      {
+        "title": "TypeScript教程",
+        "desc": "网道(wangdoc.com)",
+        "link": "https://wangdoc.com/typescript/",
+        "src": "src/assets/link/ts.svg"
+      },
+      {
+        "title": "React",
+        "desc": "官方中文文档",
+        "link": "https://react.docschina.org/",
+        "src": "src/assets/link/react.svg"
+      },
+      {
+        "title": "Redux",
+        "desc": "React状态管理库",
+        "link": "https://cn.redux.js.org/",
+        "src": "src/assets/link/redux.svg"
+      },
+      {
+        "title": "React Router v6",
+        "desc": "React前端路由库",
+        "link": "https://baimingxuan.github.io/react-router6-doc/",
+        "src": "src/assets/link/react-router.ico"
+      },
+      {
+        "title": "Vue3",
+        "desc": "官方中文文档",
+        "link": "https://cn.vuejs.org/",
+        "src": "src/assets/link/vue3.svg"
+      },
+      {
+        "title": "Element Plus",
+        "desc": "Vue3组件库",
+        "link": "https://element-plus.org/zh-CN/",
+        "src": "src/assets/link/element-plus.svg"
+      },
+      {
+        "title": "Vite",
+        "desc": "前端工具链",
+        "link": "https://cn.vitejs.dev/",
+        "src": "src/assets/link/vite.svg"
+      },
+      {
+        "title": "Deno",
+        "desc": "JavaScript运行时",
+        "link": "https://www.denojs.cn/",
+        "src": "src/assets/link/deno.svg"
+      },
+      {
+        "title": "Node.js",
+        "desc": "Node.js官方文档",
+        "link": "https://nodejs.org/zh-cn/",
+        "src": "src/assets/link/nodejs.svg"
+      },
+      {
+        "title": "Rust语言圣经",
+        "desc": "Rust语言圣经",
+        "link": "https://course.rs/about-book.html",
+        "src": "src/assets/link/rust-md.svg"
+      },
+      {
+        "title": "C语言教程",
+        "desc": "网道(wangdoc.com)",
+        "link": "https://wangdoc.com/clang/intro",
+        "src": "src/assets/link/c.svg"
+      },
+      {
+        "title": "C#教程",
+        "desc": "微软官方入门文档",
+        "link": "https://learn.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/",
+        "src": "src/assets/link/microsoft-csharp.svg"
+      },
+      {
+        "title": "Leetcode",
+        "desc": "力扣算法刷题",
+        "link": "https://leetcode.cn/problemset/",
+        "src": "src/assets/link/leetcode.svg"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "开源社区",
+    "content": [
+      {
+        "title": "稀土掘金",
+        "desc": "开发者社区",
+        "link": "https://juejin.cn/",
+        "src": "src/assets/link/juejin.svg"
+      },
+      {
+        "title": "哔哩哔哩",
+        "desc": "(゜-゜)つロ 干杯~",
+        "link": "https://www.bilibili.com/",
+        "src": "src/assets/link/bilibili.svg"
+      },
+      {
+        "title": "GitHub",
+        "desc": "GitHub官网",
+        "link": "https://github.com/",
+        "src": "src/assets/link/github.svg"
+      },
+      {
+        "title": "HelloGithub",
+        "desc": "开源项目分享平台",
+        "link": "https://github.com/",
+        "src": "src/assets/link/hellogithub.svg"
+      },
+      {
+        "title": "V2EX",
+        "desc": "V2EX社区",
+        "link": "https://www.v2ex.com/",
+        "src": "src/assets/link/v2ex.svg"
+      },
+      {
+        "title": "Twitter",
+        "desc": "Twitter官网",
+        "link": "https://twitter.com/",
+        "src": "src/assets/link/twitter.svg"
+      },
+      {
+        "title": "YouTube",
+        "desc": "YouTube官网",
+        "link": "https://www.youtube.com/",
+        "src": "src/assets/link/youtube.svg"
+      },
+      {
+        "title": "Twitch",
+        "desc": "Twitch官网",
+        "link": "https://www.twitch.tv/",
+        "src": "src/assets/link/twitch.svg"
+      },
+      {
+        "title": "ChatGPT",
+        "desc": "OpenAI官网[外网]",
+        "link": "https://chat.openai.com/",
+        "src": "src/assets/link/chatGPT.svg"
+      }
+    ]
+  },
+  {
+    "type": "acg",
+    "title": "动漫影音",
+    "content": [
+      {
+        "title": "AGE动漫",
+        "desc": "在线动漫观看",
+        "link": "https://github.com/agefanscom/website",
+        "src": "src/assets/link/AGEcom.ico"
+      }
+    ]
+  },
+  {
+    "type": "software",
+    "title": "实用软件",
+    "content": [
+      {
+        "title": "Bandizip",
+        "desc": "官网最新版有广告",
+        "link": "https://www.bandisoft.com/bandizip/",
+        "src": "src/assets/link/bandizip.svg"
+      }
+    ]
+  },
+  {
+    "type": "gameLink",
+    "title": "游戏平台",
+    "content": [
+      {
+        "title": "OSU!",
+        "desc": "开源音游",
+        "link": "https://osu.ppy.sh/home",
+        "src": "src/assets/link/osu.svg"
+      },
+      {
+        "title": "Nintendo",
+        "desc": "Switch官网",
+        "link": "https://accounts.nintendo.com/",
+        "src": "src/assets/link/nintendo.svg"
+      },
+      {
+        "title": "Steam",
+        "desc": "Steam官网",
+        "link": "https://store.steampowered.com/",
+        "src": "src/assets/link/steam.svg"
+      },
+      {
+        "title": "Epic Games",
+        "desc": "Epic Games官网",
+        "link": "https://www.epicgames.com/store/zh-CN/",
+        "src": "src/assets/link/epicgames.svg"
+      }
+    ]
+  }
+]
