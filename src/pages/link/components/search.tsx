@@ -68,7 +68,7 @@ function Search() {
           type="text"
           placeholder="搜索"
         />
-        <img src="src/assets/link/search.svg" />
+        <img src={import.meta.env.VITE_BASE_URL + 'link/search.svg'} />
         <div className="search-result">
           {result.map(({ title, desc, link }) => (
             <a key={title} className="search-link" href={link} target="_blank">
