@@ -1,20 +1,15 @@
 {
   "name": "inheritance",
-  "homepage": "https://Relsola.github.io/Inheritance",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
-    "axios": "^1.7.2",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -31,7 +26,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "gh-pages": "^6.1.1",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "typescript": "^5.5.2",
