@@ -71,9 +71,15 @@
       },
       {
         "title": "C#教程",
-        "desc": "微软官方入门文档",
+        "desc": "微软官方文档",
         "link": "https://learn.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/",
         "src": "link/microsoft-csharp.svg"
+      },
+      {
+        "title": ".NET WinForms教程",
+        "desc": "微软官方文档",
+        "link": "https://learn.microsoft.com/zh-cn/dotnet/desktop/winforms/",
+        "src": "link/win11.svg"
       },
       {
         "title": "Leetcode",
