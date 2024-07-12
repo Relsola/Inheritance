@@ -8,7 +8,6 @@ import { RouterProvider } from 'react-router-dom';
 import routes from '@/router';
 
 import 'normalize.css';
-import '@/utils/window';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
