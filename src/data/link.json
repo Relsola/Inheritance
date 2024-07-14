@@ -4,6 +4,12 @@
     "title": "学习文档",
     "content": [
       {
+        "title": "MDN Web Docs",
+        "desc": "Web 开发文档",
+        "link": "https://developer.mozilla.org/zh-CN/docs/Web",
+        "src": "link/mdn.svg"
+      },
+      {
         "title": "TypeScript教程",
         "desc": "网道(wangdoc.com)",
         "link": "https://wangdoc.com/typescript/",
@@ -58,10 +64,16 @@
         "src": "link/nodejs.svg"
       },
       {
-        "title": "Rust语言圣经",
+        "title": "Rust 语言圣经",
         "desc": "Rust语言圣经",
         "link": "https://course.rs/about-book.html",
         "src": "link/rust-md.svg"
+      },
+      {
+        "title": "Rust 中文网",
+        "desc": "Rust 文档网",
+        "link": "https://rustwiki.org/docs/",
+        "src": "link/rust.svg"
       },
       {
         "title": "C语言教程",
