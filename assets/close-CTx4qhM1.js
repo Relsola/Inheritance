@@ -1,0 +1,1 @@
+import{j as s}from"./index-CzxCmjjT.js";const x=({handleClick:o=()=>{}})=>s.jsx("svg",{viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg",onClick:o,children:s.jsx("path",{d:"M61.78 792.27h898.58v84.24H61.78zM960.35 665.9L763.79 525.5l196.56-140.4zM61.78 483.39h589.69v84.24H61.78zM61.78 174.89h898.58v84.24H61.78z"})});export{x as default};
