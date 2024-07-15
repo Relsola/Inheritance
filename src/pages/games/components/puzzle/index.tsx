@@ -1,5 +1,5 @@
-function puzzle() {
+function Puzzle() {
   return <div></div>;
 }
 
-export default puzzle;
+export default Puzzle;
