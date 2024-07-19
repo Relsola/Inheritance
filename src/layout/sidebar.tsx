@@ -12,20 +12,26 @@ function Sidebar() {
   };
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar-logo">{show ? 'Relsola' : 'Sola'}</div>
+    <aside>
+      <div className="h9 text-center text-4xl font-bold py5">
+        {show ? 'Relsola' : 'Sola'}
+      </div>
 
-      <ul>
+      <ul className="list-none p-0 m-0">
         {LinkData.map(({ type, title }) => (
-          <li key={type} onClick={() => handleScrollToTop(type)}>
-            <Icon name={type} />
+          <li
+            className="w40 h11 flex justify-start items-center px2.5 text-sm mx2.5 my0.5 rounded cursor-pointer color-active bgt-1"
+            key={type}
+            onClick={() => handleScrollToTop(type)}
+          >
+            <Icon classes="w6 h6 mr2" name={type} />
             {show && title}
           </li>
         ))}
       </ul>
 
-      <footer className="sidebar-footer">
-        <Icon name="submission" />
+      <footer className="w40 h11 absolute bottom-2 flex justify-start items-center px2.5 text-sm mx2.5 rounded cursor-pointer color-active bgt-1">
+        <Icon name="submission" classes="w6 h6 mr2" />
         {show && '建议投稿'}
       </footer>
     </aside>

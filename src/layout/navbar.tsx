@@ -23,14 +23,20 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="header-mini">
-        <Icon name={iconName} handleClick={setSize} />
-      </div>
-      <ul>
+      <Icon
+        classes="w7.5 h7.5 p5 transition-all cursor-pointer hover:w8.5 hover:h8.5 hover:p4.5 hover:fill-active"
+        name={iconName}
+        handleClick={setSize}
+      />
+
+      <ul className="flex justify-start items-center h17.5 list-none p0 m0">
         {List.map(({ name, icon, link }) => (
           <li key={name}>
-            <Link to={link}>
-              <Icon name={icon} />
+            <Link
+              to={link}
+              className="flex-center w30 h11 rounded mx2 color-[#333333] color-active hover:bg-[#f5f5f5]"
+            >
+              <Icon classes="w5 h5 mr2.5" name={icon} />
               {name}
             </Link>
           </li>

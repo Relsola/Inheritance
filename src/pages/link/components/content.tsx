@@ -19,8 +19,11 @@ const base = import.meta.env.VITE_BASE_URL;
 function Tag({ type, title, content }: LinkTagProps) {
   return (
     <div>
-      <div className="link-tag" id={`link-item-${type}`}>
-        <Icon name={type} />
+      <div
+        className="link-tag flex justify-start items-center text-lg"
+        id={`link-item-${type}`}
+      >
+        <Icon classes="w7 h7 ml5 mr1" name={type} />
         <span>{title}</span>
       </div>
       {content.map(item => (
@@ -32,22 +35,27 @@ function Tag({ type, title, content }: LinkTagProps) {
 
 function Card({ title, desc, link, src }: LinkCardProps) {
   return (
-    <a className="link-card" href={link} target="_blank">
-      <section>
-        <img src={base + src} />
-        <div>
-          <span>{title}</span>
-          <span>{desc}</span>
+    <a
+      className="link-card inline-flex justify-around items-center w55 h18 m5 bg-white rounded-xl transition-all hover:shadow-md hover:translate-y--1 hover:scale-105 hover:color-active"
+      href={link}
+      rel="noreferrer"
+      target="_blank"
+    >
+      <section className="flex justify-start items-center">
+        <img className="w10 h10 mr2.5" src={base + src} />
+        <div className="flex flex-col justify-center">
+          <span className="font-bold text-sm">{title}</span>
+          <span className="color-[#6c757d] text-xs py0.5">{desc}</span>
         </div>
       </section>
-      <Icon name="arrive" />
+      <Icon classes="w5 h5 fill-[#bfbfbf] hover:fill-[#000000]" name="arrive" />
     </a>
   );
 }
 
 function Content() {
   return (
-    <div className="link-content">
+    <div className="link-content w-full h[calc(100%-100px)] overflow-auto">
       {LinkData.map(item => (
         <Tag key={item.type} {...item} />
       ))}

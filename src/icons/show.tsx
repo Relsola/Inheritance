@@ -1,6 +1,7 @@
-const ShowIcon: React.FC<IconProps> = ({ handleClick = () => {} }) => (
+const ShowIcon: React.FC<IconProps> = ({ handleClick = () => {}, classes }) => (
   <svg
     viewBox="0 0 1024 1024"
+    className={classes || ''}
     xmlns="http://www.w3.org/2000/svg"
     onClick={handleClick}
   >

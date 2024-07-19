@@ -59,21 +59,31 @@ function Search() {
   };
 
   return (
-    <section className="search">
-      <div className="search-input">
+    <section className="w-full h25 flex-center">
+      <div className="flex-center relative">
         <input
           value={value}
+          className="max-w200 min-w125 h10 border-none rounded p0 px5 bg-[#f2f3f4] outline-none placeholder-[#bfbfbf]"
           onChange={e => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
           type="text"
           placeholder="搜索"
         />
-        <img src={import.meta.env.VITE_BASE_URL + 'link/search.svg'} />
-        <div className="search-result">
+        <img
+          className="w5 h5 p2.5 cursor-pointer bg-[#f2f3f4]"
+          src={import.meta.env.VITE_BASE_URL + 'link/search.svg'}
+        />
+        <div className="absolute shadow top-10 w-full rounded-b-lg bg-[#fff]">
           {result.map(({ title, desc, link }) => (
-            <a key={title} className="search-link" href={link} target="_blank">
-              <span className="link-title">{title}</span>
-              <span className="link-desc">{desc}</span>
+            <a
+              key={title}
+              className="flex justify-start items-center px2.5 py1.25 text-sm color-active hover:rounded hover:bg-[#f2f3f4]"
+              href={link}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="font-bold mr5">{title}</span>
+              <span className="color-[#6c757d]">{desc}</span>
             </a>
           ))}
         </div>

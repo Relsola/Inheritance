@@ -9,6 +9,7 @@ import routes from '@/router';
 
 import 'normalize.css';
 import 'virtual:uno.css';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
