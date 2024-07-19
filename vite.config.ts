@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import UnoCSS from 'unocss/vite';
 import { resolve } from 'path';
 
 export default defineConfig(({ mode }) => {
@@ -8,7 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: VITE_BASE_URL,
 
-    plugins: [react()],
+    plugins: [react(), UnoCSS()],
 
     css: {
       preprocessorOptions: {
