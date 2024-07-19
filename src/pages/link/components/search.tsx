@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import LinkData from '@/data/link.json';
 
 function Search() {
   const [value, setValue] = useState('');
+  const searchLink = useRef<HTMLDivElement>(null);
 
   const low = value.toLowerCase();
   const result = low
@@ -15,46 +16,26 @@ function Search() {
         )
     : [];
 
-  const handleKeyDown = (e: { key: string; preventDefault: () => void }) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-
-      const nodes = Array.from(document.querySelectorAll('.search-link'));
-      if (nodes.length === 0) return;
-      const index = nodes.findIndex(node => node.classList.contains('active'));
-
-      if (index === -1) {
-        nodes[0].classList.add('active');
-      } else if (index < nodes.length - 1) {
-        nodes[index].classList.remove('active');
-        nodes[index + 1].classList.add('active');
-      } else {
-        nodes[index].classList.remove('active');
-        nodes[0].classList.add('active');
-      }
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (
+      !searchLink.current ||
+      !searchLink.current.childNodes.length ||
+      !['ArrowUp', 'ArrowDown', 'Enter'].includes(e.key)
+    ) {
+      return;
     }
 
-    if (e.key === 'ArrowUp') {
-      e.preventDefault();
+    e.preventDefault();
+    const nodes = Array.from(searchLink.current.childNodes) as HTMLElement[];
+    let index = nodes.findIndex(v => v.classList.contains('text-active'));
 
-      const nodes = Array.from(document.querySelectorAll('.search-link'));
-      if (nodes.length === 0) return;
-      const index = nodes.findIndex(node => node.classList.contains('active'));
-
-      if (index === -1) {
-        nodes[0].classList.add('active');
-      } else if (index > 0) {
-        nodes[index].classList.remove('active');
-        nodes[index - 1].classList.add('active');
-      } else {
-        nodes[index].classList.remove('active');
-        nodes[nodes.length - 1].classList.add('active');
-      }
-    }
-
-    if (e.key === 'Enter') {
-      const node = document.querySelector('.search-link.active');
-      node && (node as HTMLAnchorElement).click();
+    if (e.key === 'Enter') index !== -1 && nodes[index].click();
+    else if (index === -1) nodes[0].classList.add('text-active');
+    else {
+      nodes[index].classList.remove('text-active');
+      const length = nodes.length;
+      index = (e.key === 'ArrowUp' ? index - 1 + length : index + 1) % length;
+      nodes[index].classList.add('text-active');
     }
   };
 
@@ -73,7 +54,10 @@ function Search() {
           className="w5 h5 p2.5 cursor-pointer bg-[#f2f3f4]"
           src={import.meta.env.VITE_BASE_URL + 'link/search.svg'}
         />
-        <div className="absolute shadow top-10 w-full rounded-b-lg bg-[#fff]">
+        <div
+          className="absolute shadow top-10 w-full rounded-b-lg bg-[#fff]"
+          ref={searchLink}
+        >
           {result.map(({ title, desc, link }) => (
             <a
               key={title}
