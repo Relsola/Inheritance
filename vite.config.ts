@@ -11,19 +11,10 @@ export default defineConfig(({ mode }) => {
 
     plugins: [react(), UnoCSS()],
 
-    css: {
-      preprocessorOptions: {
-        less: {
-          math: 'always',
-          charset: true,
-          additionalData: '@import "@/style/variable.less";'
-        }
-      }
-    },
-
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src')
+        '@': resolve(__dirname, './src'),
+        '@sola': resolve(__dirname, './src/utils/sola.ts')
       }
     }
   };
