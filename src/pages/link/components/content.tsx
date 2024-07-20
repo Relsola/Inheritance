@@ -45,7 +45,12 @@ function Card({ title, desc, link, src }: LinkCardProps) {
         <img className="w10 h10 mr2.5" src={base + src} />
         <div className="flex flex-col justify-center">
           <span className="font-bold text-sm">{title}</span>
-          <span className="color-[#6c757d] text-xs py0.5">{desc}</span>
+          <span
+            title={desc}
+            className="w28 text-one-none color-[#6c757d] text-xs py0.5"
+          >
+            {desc}
+          </span>
         </div>
       </section>
       <Icon classes="w5 h5 fill-[#bfbfbf] hover:fill-[#000000]" name="arrive" />
