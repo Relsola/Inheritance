@@ -5,19 +5,19 @@
     "content": [
       {
         "title": "MDN Web Docs",
-        "desc": "Web 开发文档",
+        "desc": "Web前端开发API文档",
         "link": "https://developer.mozilla.org/zh-CN/docs/Web",
         "src": "link/mdn.svg"
       },
       {
         "title": "TypeScript教程",
-        "desc": "网道(wangdoc.com)",
+        "desc": "网道教程",
         "link": "https://wangdoc.com/typescript/",
         "src": "link/ts.svg"
       },
       {
         "title": "React",
-        "desc": "官方中文文档",
+        "desc": "React官方中文文档",
         "link": "https://react.docschina.org/",
         "src": "link/react.svg"
       },
@@ -52,6 +52,18 @@
         "src": "link/vite.svg"
       },
       {
+        "title": "UnoCSS",
+        "desc": "原子化CSS引擎",
+        "link": "https://unocss.nodejs.cn/",
+        "src": "link/unocss.svg"
+      },
+      {
+        "title": "Tailwind CSS",
+        "desc": "原子化CSS框架",
+        "link": "https://tailwind.nodejs.cn/",
+        "src": "link/tailwindcss.svg"
+      },
+      {
         "title": "Deno",
         "desc": "JavaScript运行时",
         "link": "https://www.denojs.cn/",
@@ -77,7 +89,7 @@
       },
       {
         "title": "C语言教程",
-        "desc": "网道(wangdoc.com)",
+        "desc": "网道教程",
         "link": "https://wangdoc.com/clang/intro",
         "src": "link/c.svg"
       },
@@ -94,10 +106,28 @@
         "src": "link/win11.svg"
       },
       {
-        "title": "Leetcode",
-        "desc": "力扣算法刷题",
-        "link": "https://leetcode.cn/problemset/",
-        "src": "link/leetcode.svg"
+        "title": "Docker从入门到实践",
+        "desc": "非常详尽的 Docker 中文教程",
+        "link": "https://yeasy.gitbook.io/docker_practice",
+        "src": "link/docker.svg"
+      },
+      {
+        "title": "Linux 教程",
+        "desc": "Linux命令和Linux运维",
+        "link": "https://dunwu.github.io/linux-tutorial/",
+        "src": "link/linux.svg"
+      },
+      {
+        "title": "shell脚本教程(WIP)",
+        "desc": "Linux命令行与Shell脚本教程(WIP)",
+        "link": "https://archlinuxstudio.github.io/ShellTutorial/#/",
+        "src": "link/archlinuxstudio.ico"
+      },
+      {
+        "title": "图解计算机基础",
+        "desc": "图解计算机网络、操作系统、计算机组成、数据库，让天下没有难懂的八股文！",
+        "link": "https://xiaolincoding.com/",
+        "src": "link/xiaolincoding.ico"
       }
     ]
   },
@@ -187,8 +217,14 @@
   },
   {
     "type": "gameLink",
-    "title": "游戏平台",
+    "title": "游戏时间",
     "content": [
+      {
+        "title": "Leetcode",
+        "desc": "力扣算法刷题",
+        "link": "https://leetcode.cn/problemset/",
+        "src": "link/leetcode.svg"
+      },
       {
         "title": "OSU!",
         "desc": "开源音游",
@@ -212,6 +248,48 @@
         "desc": "Epic Games官网",
         "link": "https://www.epicgames.com/store/zh-CN/",
         "src": "link/epicgames.svg"
+      }
+    ]
+  },
+  {
+    "type": "github",
+    "title": "开源项目",
+    "content": [
+      {
+        "title": "TS类型挑战",
+        "desc": "TypeScript 类型体操姿势合集",
+        "link": "tsch.js.org/",
+        "src": "link/tsch.ico"
+      },
+      {
+        "title": "Vue.js挑战",
+        "desc": "Vue.js 在线挑战平台",
+        "link": "https://cn-vuejs-challenges.netlify.app/",
+        "src": "link/vue3.svg"
+      },
+      {
+        "title": "c4",
+        "desc": "用 4 个函数实现的 C 语言编译器",
+        "link": "https://github.com/rswier/c4",
+        "src": "link/c.svg"
+      }
+    ]
+  },
+  {
+    "type": "openBook",
+    "title": "开源书籍",
+    "content": [
+      {
+        "title": "《动手学深度学习》",
+        "desc": "面向中文读者的能运行、可讨论的深度学习教科书",
+        "link": "https://zh.d2l.ai/",
+        "src": "link/deepLearning.ico"
+      },
+      {
+        "title": "《把时间当作朋友》",
+        "desc": "做事不一定要图快，马跑起来比骆驼快，但骆驼一生走过的路却是马的两倍。",
+        "link": "https://github.com/xiaolai/time-as-a-friend",
+        "src": "link/time-as-a-friend.ico"
       }
     ]
   }
