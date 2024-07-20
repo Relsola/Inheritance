@@ -11,7 +11,6 @@ import Wonder from '@/pages/wonder';
 import Error from '@/pages/error';
 
 const base = import.meta.env.VITE_BASE_URL;
-console.log(base);
 
 const routes = createBrowserRouter(
   createRoutesFromElements(

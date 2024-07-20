@@ -20,7 +20,7 @@ function Tag({ type, title, content }: LinkTagProps) {
   return (
     <div>
       <div
-        className="link-tag flex justify-start items-center text-lg"
+        className="flex justify-start items-center text-lg"
         id={`link-item-${type}`}
       >
         <Icon classes="w7 h7 ml5 mr1" name={type} />
@@ -36,7 +36,7 @@ function Tag({ type, title, content }: LinkTagProps) {
 function Card({ title, desc, link, src }: LinkCardProps) {
   return (
     <a
-      className="link-card inline-flex justify-around items-center w55 h18 m5 bg-white rounded-xl transition-all hover:shadow-md hover:translate-y--1 hover:scale-105 hover:color-active"
+      className="inline-flex justify-around items-center w55 h18 m5 bg-white rounded-xl transition-all hover:shadow-md hover:translate-y--1 hover:scale-105 hover:color-active"
       href={link}
       rel="noreferrer"
       target="_blank"
@@ -55,7 +55,7 @@ function Card({ title, desc, link, src }: LinkCardProps) {
 
 function Content() {
   return (
-    <div className="link-content w-full h[calc(100%-100px)] overflow-auto">
+    <div className="w-full h[calc(100%-100px)] overflow-auto">
       {LinkData.map(item => (
         <Tag key={item.type} {...item} />
       ))}

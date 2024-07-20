@@ -4,6 +4,8 @@ import { changeSidebarSize } from '@/features/theme';
 
 import Icon from '@/components/icon';
 
+const base = import.meta.env.VITE_BASE_URL;
+
 function Navbar() {
   const sidebarSize = useAppSelector(state => state.theme.sidebarSize);
   const dispatch = useAppDispatch();
@@ -16,9 +18,9 @@ function Navbar() {
   };
 
   const List = [
-    { icon: 'navigation', name: '导航链接', link: '/' },
-    { icon: 'game', name: '袖珍游戏', link: '/games' },
-    { icon: 'sandBeach', name: 'Wonder', link: '/wonder' }
+    { icon: 'navigation', name: '导航链接', link: '' },
+    { icon: 'game', name: '袖珍游戏', link: 'games' },
+    { icon: 'sandBeach', name: 'Wonder', link: 'wonder' }
   ];
 
   return (
@@ -33,7 +35,7 @@ function Navbar() {
         {List.map(({ name, icon, link }) => (
           <li key={name}>
             <Link
-              to={link}
+              to={base + link}
               className="flex-center w30 h11 rounded mx2 color-[#333333] color-active hover:bg-[#f5f5f5]"
             >
               <Icon classes="w5 h5 mr2.5" name={icon} />
