@@ -156,7 +156,7 @@
       {
         "title": "HelloGithub",
         "desc": "开源项目分享平台",
-        "link": "https://github.com/",
+        "link": "https://hellogithub.com/",
         "src": "link/hellogithub.svg"
       },
       {
@@ -258,7 +258,7 @@
       {
         "title": "TS类型挑战",
         "desc": "TypeScript 类型体操姿势合集",
-        "link": "tsch.js.org/",
+        "link": "https://tsch.js.org/",
         "src": "link/tsch.ico"
       },
       {
