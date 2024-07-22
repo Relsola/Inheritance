@@ -13,8 +13,7 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
-        '@sola': resolve(__dirname, './src/utils/sola.ts')
+        '@': resolve(__dirname, './src')
       }
     }
   };
