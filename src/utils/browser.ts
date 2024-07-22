@@ -73,3 +73,14 @@ export function clickOutside(element: HTMLElement, callback: () => void) {
 
   return () => document.removeEventListener('click', handleClickOutside);
 }
+
+/** 获取网页URL参数 */
+export function getSearchParams(url?: string): Record<string, string> {
+  url ||= window.location.href;
+  url = url.substring(url.lastIndexOf('?'));
+
+  const params: Record<string, string> = {};
+  new URLSearchParams(url).forEach((value, key) => (params[key] = value));
+
+  return params;
+}
