@@ -63,3 +63,13 @@ export function recordAnimationFrames(
 
   return { start, stop };
 }
+
+/** 点击元素外面触发回调，返回一个事件移除函数 */
+export function clickOutside(element: HTMLElement, callback: () => void) {
+  const handleClickOutside = (e: MouseEvent) =>
+    !element.contains(e.target as Node) && callback();
+
+  document.addEventListener('click', handleClickOutside);
+
+  return () => document.removeEventListener('click', handleClickOutside);
+}
