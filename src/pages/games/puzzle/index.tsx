@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '@ui';
 
 function Puzzle() {
   const baseArray = Array.from({ length: 9 }, (_, i) => i + 1);
@@ -55,7 +56,7 @@ function Puzzle() {
         ))}
       </div>
 
-      <button
+      <Button
         onClick={() => {
           while (true) {
             const shuffled = shuffle(divS);
@@ -67,9 +68,9 @@ function Puzzle() {
         }}
       >
         开始
-      </button>
-      <button onClick={() => setDivS(baseArray)}>重置</button>
-      <button>求解</button>
+      </Button>
+      <Button onClick={() => setDivS(baseArray)}>重置</Button>
+      <Button>求解</Button>
     </>
   );
 }
