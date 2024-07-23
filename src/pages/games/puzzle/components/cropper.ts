@@ -1,4 +1,4 @@
-import { clipboard } from '@/utils';
+import { clipboard } from '@/utils/browser';
 
 /** 生成canvas */
 export function createCanvas({
