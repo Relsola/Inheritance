@@ -57,6 +57,7 @@ function Puzzle() {
       </div>
 
       <Button
+        classname="w20 m-2"
         onClick={() => {
           while (true) {
             const shuffled = shuffle(divS);
@@ -69,8 +70,10 @@ function Puzzle() {
       >
         开始
       </Button>
-      <Button onClick={() => setDivS(baseArray)}>重置</Button>
-      <Button>求解</Button>
+      <Button classname="w20 mx-4" onClick={() => setDivS(baseArray)}>
+        重置
+      </Button>
+      <Button classname="w20">求解</Button>
     </>
   );
 }

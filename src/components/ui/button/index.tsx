@@ -8,7 +8,7 @@ export default function Button(props: ButtonProps) {
   const { children, onClick, classname = '' } = props;
   return (
     <button
-      className={`${classname} border-none bg-[#E6F4FE] text-[#0D74CE] hover:bg-[#D5EFFF] px2 py1 m2`}
+      className={`${classname} h8 text-xs border-none rounded-md bg-[#0047f112] text-[#002BB7C5] hover:bg-[#D5EFFF] active:bg-[#ACD8FC] px3`}
       onClick={onClick}
     >
       {children}
