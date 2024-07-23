@@ -15,7 +15,7 @@ export default defineConfig({
 
   theme: {
     colors: {
-      active: '#e83e8c'
+      active: '#E93D82'
     }
   },
 
