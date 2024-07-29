@@ -268,10 +268,16 @@
         "src": "link/tsch.ico"
       },
       {
-        "title": "Vue.js挑战",
-        "desc": "Vue.js 在线挑战平台",
+        "title": "VueUse",
+        "desc": "Vue 组合式工具集",
         "link": "https://cn-vuejs-challenges.netlify.app/",
         "src": "link/vue3.svg"
+      },
+      {
+        "title": "Vue.js挑战",
+        "desc": "Vue.js 在线挑战平台",
+        "link": "https://vueuse.nodejs.cn/",
+        "src": "link/vueuse.ico"
       },
       {
         "title": "c4",
