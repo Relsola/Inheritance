@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import Navbar from './navbar';
 import Sidebar from './sidebar';
+import DeviceListener from './deviceListener';
 
 function Layout() {
   return (
@@ -10,6 +11,7 @@ function Layout() {
       <Sidebar />
       <Navbar />
       <section>{<Outlet />}</section>
+      <DeviceListener />
     </>
   );
 }
