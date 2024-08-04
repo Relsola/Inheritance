@@ -20,6 +20,7 @@ function Navbar() {
   const List = [
     { icon: 'navigation', name: '导航链接', link: '' },
     { icon: 'game', name: '袖珍游戏', link: 'games' },
+    { icon: 'toolBox', name: '工具箱', link: 'toolBox' },
     { icon: 'sandBeach', name: 'Wonder', link: 'wonder' }
   ];
 
