@@ -1,10 +1,10 @@
-interface Options {
-  delay: number;
-  callback: (...args: unknown[]) => void;
-  immediate?: boolean;
-}
+type ThrottleDebounce = (
+  delay: number,
+  callback: (...args: unknown[]) => void,
+  immediate?: boolean
+) => (this: unknown, ...args: unknown[]) => void;
 
-export const throttle = ({ delay, callback, immediate = true }: Options) => {
+const throttle: ThrottleDebounce = (delay, callback, immediate = true) => {
   let lastExec: number = 0;
 
   return function (this: unknown, ...args: unknown[]) {
@@ -19,7 +19,7 @@ export const throttle = ({ delay, callback, immediate = true }: Options) => {
   };
 };
 
-export const debounce = ({ delay, callback, immediate = true }: Options) => {
+const debounce: ThrottleDebounce = (delay, callback, immediate = true) => {
   let timeoutID: ReturnType<typeof setTimeout> | undefined;
 
   return function (this: unknown, ...args: unknown[]) {
@@ -33,3 +33,5 @@ export const debounce = ({ delay, callback, immediate = true }: Options) => {
     }, delay);
   };
 };
+
+export { throttle, debounce };
