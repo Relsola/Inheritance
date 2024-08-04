@@ -41,3 +41,13 @@ export function curry<T extends (...args: any[]) => any>(
   };
   return curried;
 }
+
+/** 洗牌打乱函数  --浅克隆-- */
+export function shuffle(arr: any[]) {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
