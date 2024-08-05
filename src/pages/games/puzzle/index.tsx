@@ -1,45 +1,62 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { shuffle } from '@/utils';
 import { Button } from '@ui';
 
-function Puzzle() {
-  const contentBox = useRef<HTMLDivElement>(null);
+type Time = string | number;
 
-  /** 定位坐标 控制定位表现出动画 */
-  const content = [
-    [0, 0],
-    [0, 100],
-    [0, 200],
-    [100, 0],
-    [100, 100],
-    [100, 200],
-    [200, 0],
-    [200, 100],
-    [200, 200]
-  ];
+function getNextTime(time: string) {
+  let hour: Time, minute: Time, second: Time;
+  [hour, minute, second] = time.split(':').map(Number);
+
+  if (second < 59) {
+    hour = hour.toString().padStart(2, '0');
+    minute = minute.toString().padStart(2, '0');
+    second = (second + 1).toString().padStart(2, '0');
+    return `${hour}:${minute}:${second}`;
+  }
+
+  if (minute < 59) {
+    hour = hour.toString().padStart(2, '0');
+    minute = (minute + 1).toString().padStart(2, '0');
+    return `${hour}:${minute}:00`;
+  }
+
+  return `${(hour === 23 ? 0 : hour + 1).toString().padStart(2, '0')}:00:00`;
+}
+
+function Puzzle() {
+  const [level, setLevel] = useState<number>(3);
+
+  const length = level ** 2;
+  const size = 300 / level;
+  const base = Array.from({ length }, (_, i) => i);
+
+  const [content, setContent] = useState<number[]>([...base]);
+
+  const [step, setStep] = useState<number>(0);
+  const [time, setTime] = useState<string>('00:00:00');
+  const [timer, setTimer] = useState<NodeJS.Timeout>();
 
   /** 移动拼图 */
-  function move(num: number) {
-    if (num === 8 || !contentBox.current || !contentBox.current.childNodes) {
-      return;
-    }
+  function move(e: React.MouseEvent<HTMLDivElement>) {
+    if (timer === undefined) return alert('请先开始游戏！');
 
-    const blankDiv = contentBox.current.childNodes[8] as HTMLDivElement;
-    const activeDiv = contentBox.current.childNodes[num] as HTMLDivElement;
+    /** 事件委托获取点击的拼图 */
+    const target = e.target as HTMLDivElement;
+    const num = Number(target.dataset.value);
+    if (isNaN(num) || num === length - 1) return;
 
-    const { top: blankTop, left: blankLeft } = blankDiv.style;
-    const { top: activeTop, left: activeLeft } = activeDiv.style;
+    /** 判断是否可交换位置 */
+    const index = content[num];
+    const blankIndex = content[length - 1];
+    const diff = Math.abs(index - blankIndex);
+    if (diff !== 1 && diff !== level) return;
 
-    const topAbs = Math.abs(parseInt(blankTop) - parseInt(activeTop));
-    const leftAbs = Math.abs(parseInt(blankLeft) - parseInt(activeLeft));
-
-    if (topAbs === 100 && leftAbs === 0) {
-      blankDiv.style.top = activeTop;
-      activeDiv.style.top = blankTop;
-    } else if (topAbs === 0 && leftAbs === 100) {
-      blankDiv.style.left = activeLeft;
-      activeDiv.style.left = blankLeft;
-    }
+    const arr = [...content];
+    arr[num] = blankIndex;
+    arr[length - 1] = index;
+    setContent(arr);
+    setStep(step + 1);
   }
 
   /** 逆序数为偶数拼图才有解  */
@@ -53,34 +70,40 @@ function Puzzle() {
     return count % 2 === 0;
   };
 
-  /** 开始游戏 */
+  /** 初始化 */
+  function initialization() {
+    setStep(0);
+    setTime('00:00:00');
+    clearInterval(timer);
+    setTimer(undefined);
+  }
+
+  /** 开始 */
   function start() {
-    if (!contentBox.current || !contentBox.current.childNodes) return;
-
-    const base = Array.from({ length: 9 }, (_, i) => i);
-
     while (true) {
-      const shuffled = shuffle(base);
+      const shuffled = shuffle(content);
       if (isSolvable(shuffled)) {
-        contentBox.current.childNodes.forEach((div, index) => {
-          const [top, left] = content[shuffled[index]];
-          (div as HTMLDivElement).style.top = `${top}px`;
-          (div as HTMLDivElement).style.left = `${left}px`;
-        });
+        setContent(shuffled);
         break;
       }
     }
+
+    initialization();
+    setTimer(setInterval(() => setTime(time => getNextTime(time)), 1000));
   }
 
-  /** 重置拼图 */
+  /** 重置 */
   function reset() {
-    if (!contentBox.current || !contentBox.current.childNodes) return;
+    setContent([...base]);
+    initialization();
+  }
 
-    contentBox.current.childNodes.forEach((div, index) => {
-      const [top, left] = content[index];
-      (div as HTMLDivElement).style.top = `${top}px`;
-      (div as HTMLDivElement).style.left = `${left}px`;
-    });
+  /** 改变难度 */
+  function changeLevel(e: React.ChangeEvent<HTMLInputElement>) {
+    const level = Number(e.target.value);
+    setLevel(level);
+    setContent(Array.from({ length: level ** 2 }, (_, i) => i));
+    initialization();
   }
 
   /** 拼图求解 */
@@ -88,32 +111,70 @@ function Puzzle() {
 
   return (
     <>
-      <h1>Puzzle</h1>
-      <p>Under construction...</p>
+      <h1 className="w32 h30 flex-center m-auto">拼图游戏</h1>
 
-      <div ref={contentBox} className="w75 h75 relative">
-        {content.map((pos, index) => (
-          <div
-            key={index}
-            style={{ top: `${pos[0]}px`, left: `${pos[1]}px` }}
-            className={`${index === 8 ? '' : 'bg-sky cursor-pointer'}
-              w24 h24 text-center leading-25 absolute transition-all`}
-            onClick={() => move(index)}
-          >
-            {index}
+      <div className="flex items-center justify-center">
+        <section>
+          <div className="w75 h75 mr-25 relative" onClick={move}>
+            {content.map((val, index) => {
+              const loop = Math.floor(val / level);
+              const remainder = val % level;
+
+              return (
+                <div
+                  key={index}
+                  style={{
+                    width: `${size - 4}px`,
+                    height: `${size - 4}px`,
+                    top: `${size * loop}px`,
+                    left: `${size * remainder}px`
+                  }}
+                  data-value={index}
+                  className={`${
+                    index === length - 1 ? '' : 'bg-sky cursor-pointer'
+                  } flex-center absolute transition-all`}
+                >
+                  {index + 1 === length ? '' : index + 1}
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
 
-      <Button classname="w20 m-2" onClick={start}>
-        开始
-      </Button>
-      <Button classname="w20 mx-4" onClick={reset}>
-        重置
-      </Button>
-      <Button classname="w20" onClick={solve}>
-        求解
-      </Button>
+          <Button classname="w20 m-2" onClick={start}>
+            开始
+          </Button>
+          <Button classname="w20 mx-4" onClick={reset}>
+            重置
+          </Button>
+          <Button classname="w20" onClick={solve}>
+            求解
+          </Button>
+        </section>
+
+        <div className="h80 flex flex-col justify-around items-start">
+          <div>
+            <span>难度：</span>
+            <input
+              type="range"
+              min="3"
+              max="6"
+              value={level}
+              onChange={changeLevel}
+            />
+            <span className="ml2">{level}</span>
+          </div>
+
+          <div className="ml2">
+            <span>步数：</span>
+            <span>{step}</span>
+          </div>
+
+          <div className="ml2">
+            <span>时间：</span>
+            <span>{time}</span>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
