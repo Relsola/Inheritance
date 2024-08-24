@@ -1,21 +1,15 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '@/app/hooks';
-import { changeSidebarSize } from '@/features/theme';
-
 import Icon from '@/components/icon';
 
 const base = import.meta.env.VITE_BASE_URL;
 
 function Navbar() {
-  const sidebarSize = useAppSelector(state => state.theme.sidebarSize);
-  const dispatch = useAppDispatch();
-
-  const iconName = sidebarSize === 'show' ? 'close' : 'show';
-  const setSize = () => {
-    if (sidebarSize === 'show') dispatch(changeSidebarSize('close'));
-    else dispatch(changeSidebarSize('show'));
-    document.getElementById('toggle-sidebar')?.click();
-  };
+  const [activeIndex, setActiveIndex] = useState<string>('');
+  useEffect(() => {
+    const [path = ''] = window.location.pathname.split('/').filter(Boolean);
+    setActiveIndex(path);
+  }, []);
 
   const List = [
     { icon: 'navigation', name: '导航链接', link: '' },
@@ -25,26 +19,43 @@ function Navbar() {
   ];
 
   return (
-    <header className="navbar">
-      <Icon
-        classes="w7.5 h7.5 p5 transition-all cursor-pointer hover:w8.5 hover:h8.5 hover:p4.5 hover:fill-active"
-        name={iconName}
-        handleClick={setSize}
-      />
+    <header className="pos-sticky top-0 h12 overflow-auto glass-effect">
+      <style>
+        {`
+        header::-webkit-scrollbar {
+          display: none;
+        }
 
-      <ul className="flex justify-start items-center h17.5 list-none p0 m0">
+        header {
+          -ms-overflow-style: none; scrollbar-width: none;
+        }
+
+        .glass-effect {
+          background: rgba(255, 255, 255, 0);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        `}
+      </style>
+
+      <div className="flex justify-center items-center min-w-125 py1 glass-effect">
         {List.map(({ name, icon, link }) => (
-          <li key={name}>
-            <Link
-              to={base + link}
-              className="flex-center w30 h11 rounded mx2 color-[#333333] color-active hover:bg-[#f5f5f5]"
-            >
-              <Icon classes="w5 h5 mr2.5" name={icon} />
-              {name}
-            </Link>
-          </li>
+          <Link
+            key={name}
+            to={base + link}
+            className="pos-relative flex-center w25 h8 rounded mx2 color-[#333333] color-active hover:bg-[#f5f5f5]"
+            onClick={() => setActiveIndex(link)}
+          >
+            <Icon classes="w4 h4 mr2" name={icon} />
+            {name}
+
+            {link === activeIndex && (
+              <span className="pos-absolute bottom-0 left-0 w25 h.5 bg-active"></span>
+            )}
+          </Link>
         ))}
-      </ul>
+      </div>
     </header>
   );
 }

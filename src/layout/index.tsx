@@ -1,16 +1,16 @@
 import { Outlet } from 'react-router-dom';
-
 import Navbar from './navbar';
-import Sidebar from './sidebar';
 import DeviceListener from './deviceListener';
 
 function Layout() {
   return (
     <>
-      <input type="checkbox" id="toggle-sidebar" />
-      <Sidebar />
       <Navbar />
-      <section>{<Outlet />}</section>
+
+      <section className="w-full min-h[calc(100vh-50px)] bg-[#f9f9f9]">
+        {<Outlet />}
+      </section>
+
       <DeviceListener />
     </>
   );

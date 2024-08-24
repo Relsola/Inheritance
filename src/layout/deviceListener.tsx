@@ -15,7 +15,7 @@ const DeviceListener: React.FC = () => {
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [dispatch]);
+  }, []);
 
   return null;
 };
