@@ -34,6 +34,12 @@
         "src": "link/react-router.ico"
       },
       {
+        "title": "Ant Design 5",
+        "desc": "TSX UI组件库",
+        "link": "https://ant.design/index-cn/",
+        "src": "link/ant-design.svg"
+      },
+      {
         "title": "Vue3",
         "desc": "官方中文文档",
         "link": "https://cn.vuejs.org/",
