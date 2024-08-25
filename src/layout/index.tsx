@@ -7,7 +7,7 @@ function Layout() {
     <>
       <Navbar />
 
-      <section className="w-full min-h[calc(100vh-50px)] bg-[#f9f9f9]">
+      <section className="w-full min-h[calc(100vh-50px)] bg-[#f5f5f5]">
         {<Outlet />}
       </section>
 

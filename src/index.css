@@ -4,6 +4,16 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
 /* 滚动条样式 */
 *::-webkit-scrollbar {
   width: 3px;
@@ -26,61 +36,4 @@ a {
 
 *::-webkit-scrollbar-thumb:hover {
   background: #000000;
-}
-
-/* CSS控制侧边栏宽度 */
-#toggle-sidebar {
-  display: none;
-}
-
-#toggle-sidebar ~ aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 100vh;
-  fill: #333333;
-  transition: all 0.3s ease;
-  background-color: #ffffff;
-  font-size: 14px;
-}
-
-#toggle-sidebar:checked ~ aside {
-  width: 80px;
-}
-
-#toggle-sidebar:checked ~ aside .w-40 {
-  width: 40px;
-}
-
-#toggle-sidebar ~ header {
-  display: flex;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: calc(100vw - 200px);
-  height: 70px;
-  font-size: 14px;
-  fill: #333333;
-  transition: all 0.3s ease;
-  background-color: #fcfcfc;
-}
-
-#toggle-sidebar:checked ~ header {
-  width: calc(100vw - 80px);
-}
-
-#toggle-sidebar ~ section {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: calc(100vw - 200px);
-  height: calc(100vh - 70px);
-  background-color: #f9f9f9;
-  fill: #333333;
-  transition: all 0.3s ease;
-}
-
-#toggle-sidebar:checked ~ section {
-  width: calc(100vw - 80px);
 }

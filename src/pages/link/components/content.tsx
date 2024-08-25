@@ -1,3 +1,5 @@
+import { Tooltip } from 'antd';
+import { useAppSelector } from '@/app/hooks';
 import Icon from '@/components/icon';
 import LinkData from '@/data/link.json';
 
@@ -34,7 +36,9 @@ function Tag({ type, title, content }: LinkTagProps) {
 }
 
 function Card({ title, desc, link, src }: LinkCardProps) {
-  return (
+  const device = useAppSelector(state => state.config.device);
+
+  return device === 'desktop' ? (
     <a
       className="inline-flex justify-around items-center w55 h18 m5 bg-white rounded-xl transition-all hover:shadow-md hover:translate-y--1 hover:scale-105 hover:color-active"
       href={link}
@@ -53,14 +57,26 @@ function Card({ title, desc, link, src }: LinkCardProps) {
           </span>
         </div>
       </section>
-      <Icon classes="w5 h5 fill-[#bfbfbf] hover:fill-[#000000]" name="arrive" />
     </a>
+  ) : (
+    <Tooltip title={desc} color="magenta">
+      <a
+        className="inline-flex justify-start items-center w40 h12 m5 px1 bg-white rounded-xl transition-all hover:shadow-md hover:translate-y--1 hover:scale-105 hover:color-active"
+        href={link}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img className="w6 h6 mx1" src={base + src} />
+
+        <span className="font-bold text-sm">{title}</span>
+      </a>
+    </Tooltip>
   );
 }
 
 function Content() {
   return (
-    <div className="w-full h[calc(100%-100px)] overflow-auto">
+    <div className="pt5">
       {LinkData.map(item => (
         <Tag key={item.type} {...item} />
       ))}

@@ -1,12 +1,11 @@
-import Search from './components/search';
 import Content from './components/content';
+import Sidebar from './components/sidebar';
 
 function Link() {
   return (
     <>
-      <Search />
-
       <Content />
+      <Sidebar />
     </>
   );
 }
