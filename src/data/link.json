@@ -199,7 +199,7 @@
   },
   {
     "type": "acg",
-    "title": "动漫影音",
+    "title": "ACGN",
     "content": [
       {
         "title": "AGE动漫",
@@ -212,6 +212,12 @@
         "desc": "galgame资源站",
         "link": "https://lzacg.org/",
         "src": "link/lzacg.ico"
+      },
+      {
+        "title": "Pixiv",
+        "desc": "Pixiv官网",
+        "link": "https://www.pixiv.net/",
+        "src": "link/pixiv.svg"
       }
     ]
   },
