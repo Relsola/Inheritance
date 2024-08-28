@@ -1,18 +1,5 @@
-### 个人静态资源网站
+# Vue 3 + TypeScript + Vite
 
-用于记录和实践新学习的知识
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-#### 当前计划
-
-- [ ] 接入 Ant 组件库，重构部分 UI
-- [ ] 适配移动端
-- [ ] 拼图游戏 广度搜索优先 自动解图
-
-#### 当前学习计划
-
-##### 2024-08
-
-- [ ] 学会盲打
-- [ ] 扇贝记英语单词
-- [ ] C/C++ 入门
-- [ ] LeetCode 刷题（C/C++）学习算法
+Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
